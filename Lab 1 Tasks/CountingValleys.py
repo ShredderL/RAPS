@@ -1,7 +1,7 @@
 def countingValleys(steps, path):
     #check valid input length and matching string
     if len(path) < 2 or len(path) != steps or (len(path) % 2 == 1):
-        return ValueError("Invalid path length (too short or instructions don't match length).")
+        raise ValueError("Invalid path length (too short or instructions don't match length).")
     
     #values
     crntAlt = 0
@@ -14,7 +14,7 @@ def countingValleys(steps, path):
     for i in range(0, len(path)):
         print(path[i])
         if path[i] not in options:                                                         #Check steps valid
-            return ValueError("Path instructions contained invalid value.")
+            raise ValueError("Path instructions contained invalid value.")
         
 
         #alt logic
@@ -36,7 +36,7 @@ def countingValleys(steps, path):
         print(valleys, inValley, i, crntAlt)
             
     if crntAlt != seaLvl:
-        return ValueError("Invalid hike, did not start and end at sea level.")
+        raise ValueError("Invalid hike, did not start and end at sea level.")
     return valleys
 
 
