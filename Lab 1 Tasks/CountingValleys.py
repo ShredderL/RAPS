@@ -8,7 +8,7 @@ def countingValleys(steps, path):
     seaLvl = 0
     valleys = 0
     path = path.upper()
-    options = ["U","D"]
+    options = {"U","D"}
     inValley = False
 
     for i in range(0, len(path)):
@@ -19,7 +19,7 @@ def countingValleys(steps, path):
         #alt logic
         if path[i] == "U":
             crntAlt += 1
-        if path[i] == "D":
+        elif path[i] == "D":
             crntAlt -= 1
 
 
