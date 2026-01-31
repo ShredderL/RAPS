@@ -37,9 +37,35 @@ def countingValleys(steps, path):
     return valleys
 
 
+def countingValleysImproved(steps, path):
+    #check valid input length and matching string
+    if len(path) < 2 or len(path) != steps or (len(path) % 2 == 1):
+        raise ValueError("Invalid path length (too short or instructions don't match length).")
+    
+    #values
+    crntAlt = 0
+    valleys = 0
+    path = path.upper()
+
+    for i in path:
+        if i == "U":
+            crntAlt += 1
+            if crntAlt == 0:
+                valleys += 1
+        
+        elif i == "D":
+            crntAlt -= 1
+
+        else:
+            raise ValueError("Path instructions contained invalid value, must be U or D.")
+        
+    if crntAlt != 0:
+        raise ValueError("Invalid hike, did not start and end at sea level.")
+    
+    return valleys
 
 
 #input
 steps = int(input("Please enter number of steps: ").strip())
 path = str(input("Please enter a steps: "))
-print(countingValleys(steps, path))
+print(countingValleysImproved(steps, path))
