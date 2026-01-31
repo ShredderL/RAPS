@@ -12,7 +12,6 @@ def countingValleys(steps, path):
     inValley = False
 
     for i in range(0, len(path)):
-        print(path[i])
         if path[i] not in options:                                                         #Check steps valid
             raise ValueError("Path instructions contained invalid value.")
         
@@ -32,8 +31,6 @@ def countingValleys(steps, path):
             if crntAlt < seaLvl:
                 valleys += 1
                 inValley = True
-
-        print(valleys, inValley, i, crntAlt)
             
     if crntAlt != seaLvl:
         raise ValueError("Invalid hike, did not start and end at sea level.")
