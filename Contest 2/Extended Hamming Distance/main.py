@@ -1,3 +1,5 @@
+from itertools import zip_longest
+
 def HammingDistance(A, B) -> int:
     numDC = 0
 
@@ -18,6 +20,13 @@ def HammingDistance(A, B) -> int:
 
     return numDC
 
+def HammingDistance2(A, B) -> int:
+
+    if len(A) > 50 or len(B) > 50:
+        raise ValueError("String length too long.")
+
+    return sum(i1 != i2 for i1, i2 in zip_longest(A, B, fillvalue="!"))
+
 
 
 
@@ -28,6 +37,6 @@ A = first_multiple_input[0]
 
 B = first_multiple_input[1]
 
-distance = HammingDistance(A, B)
+distance = HammingDistance2(A, B)
 
 print(distance)
