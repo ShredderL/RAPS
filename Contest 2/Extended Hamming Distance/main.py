@@ -2,7 +2,7 @@ def HammingDistance(A, B) -> int:
     numDC = 0
 
     if len(A) > 50 or len(B) > 50:
-        return ValueError("String length too long.")
+        raise ValueError("String length too long.")
     
     diff = abs(len(A)-len(B))
 
