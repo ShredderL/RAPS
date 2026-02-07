@@ -3,24 +3,34 @@ def Mode(n, values):
     if n < 1 or n > 10000:
         raise ValueError("Error, values outside range.")
     
-    list = sorted(values)
+    sortVal = sorted(values)
     count = 1
-    leader = 0
-    highscore = 0
-    print(list)
-    multimodal = False
+    leader = sortVal[0]
+    highscore = 1
 
-    for i in range(len(list) - 1):
-        if list[i] == list[i+1]:
+    if n == 1 and sortVal[0] <0:
+        raise ValueError("Negative numbers not allowed.")
+    
+    if n == 1: multimodal = False 
+    else: multimodal = True
+
+
+    for i in range(len(sortVal) - 1):
+        if sortVal[i] < 0 or sortVal[i+1] < 0:
+            raise ValueError("Negative numbers not allowed.")
+
+
+        if sortVal[i] == sortVal[i+1]:
             count += 1
             if count > highscore:
-                leader = list[i]
+                leader = sortVal[i]
                 highscore = count
                 multimodal = False
             elif count == highscore:
                 multimodal = True
 
-        elif list[i] != list[i+1]:
+        elif sortVal[i] != sortVal[i+1]:
+
             count = 1
 
 
