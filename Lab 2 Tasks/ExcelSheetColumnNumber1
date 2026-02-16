@@ -1,0 +1,17 @@
+def titleToNumber(columnTitle) -> int:
+
+    colNum = 0
+    colTitle = columnTitle.upper()
+
+    print(colTitle)
+
+    for i, char in enumerate(colTitle):
+        colNum = colNum*26+(ord(char)-ord("A")+1)
+    return colNum
+
+
+#input
+columnTitle = str(input("Enter column title: "))
+
+print(titleToNumber(columnTitle))
+
