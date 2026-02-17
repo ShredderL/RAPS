@@ -1,6 +1,4 @@
 def SnakeToCamel(snake) -> str:
-    output = str
-    upperCheck = False
     leadingUnderscore = 0
 
     newString = snake.strip()
@@ -13,13 +11,15 @@ def SnakeToCamel(snake) -> str:
     newString = newString.replace("_", " ")
     newString = newString.title()
     varName = list(newString.split())
-    varName[0] = varName[0].lower()
 
-    for i in range(leadingUnderscore):
-        varName.insert(i, "_")
+    if varName:
+        varName[0] = varName[0].lower()
+
+    prefix = "_" * leadingUnderscore
+
+    varName.insert(0, prefix)
 
     result = "".join(str(x) for x in varName)
-    print("Variable name in camel case is: ", result)
 
     return result
 
@@ -31,3 +31,4 @@ def SnakeToCamel(snake) -> str:
 snake = input("Enter variable name: ")
 
 camel = SnakeToCamel(snake)
+print(camel)
