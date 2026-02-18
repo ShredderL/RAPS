@@ -1,4 +1,3 @@
-
 def MorseEquivalent(A, B):
     morseAlphabet = {'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.', 'f': '..-.', 'g': '--.', 'h': '....',
         'i': '..', 'j': '.---', 'k': '-.-', 'l': '.-..', 'm': '--', 'n': '-.', 'o': '---', 'p': '.--.',
@@ -12,11 +11,14 @@ def MorseEquivalent(A, B):
     for i in A:
         if i in morseAlphabet:
             morseA.append(morseAlphabet[i])
+        else:
+            raise ValueError("Character not a letter.")
 
     for i in B:
         if i in morseAlphabet:
             morseB.append(morseAlphabet[i])
-
+        else:
+            raise ValueError("Character not a letter.")
 
     Astring = "".join(morseA)
     Bstring = "".join(morseB)
@@ -34,7 +36,7 @@ def MorseEquivalent(A, B):
 
 
 #input
-first_multiple_input = input().rstrip().split()
+first_multiple_input = input("Enter: ").rstrip().split()
 
 A = first_multiple_input[0]
 
