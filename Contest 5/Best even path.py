@@ -18,14 +18,19 @@ def insert_node_into_binary_search_tree(node, node_data):
 
 
 def MaxEvenNodeSum(tree):
-    # return max sum of a path starting at root that only continues through even-valued nodes
-    #
-    # Hint for structure (not the full solution):
-    # - make a helper dfs(node)
-    # - dfs returns "best even-path sum starting from this node"
-    # - stopping cases: node is None OR node.data is odd
-    # - otherwise: node.data + max(dfs(left), dfs(right))
-    pass
+
+    def dfs(node):
+        if node is None:
+            return 0
+        if node.data % 2 != 0:
+            return 0
+        
+        leftSum = dfs(node.left)
+        rightSum = dfs(node.right)
+
+        return node.data + max(leftSum,rightSum)
+    
+    return dfs(tree)
 
 
 #input
